@@ -37,3 +37,42 @@ extension String {
         return resultText
     }
 }
+
+extension NSAttributedString {
+    
+    public func emojizedString() -> NSAttributedString {
+        let mutableString = self.mutableCopy() as! NSMutableAttributedString
+        mutableString.emojizeString()
+        return mutableString.copy() as! NSAttributedString
+    }
+}
+
+extension NSMutableAttributedString {
+    
+    public func emojizeString() {
+        
+        let text = self.string
+        
+        let matchingRange = NSMakeRange(0, self.length)
+        let results = EmojiRegex.matches(in: text, options: [], range: matchingRange)
+
+        for result in results.reversed() {
+            if result.resultType != .regularExpression {
+                continue
+            }
+
+            if result.range.location == NSNotFound {
+                continue
+            }
+            
+            let code = (text as NSString).substring(with: result.range)
+            if let unicode = EMOJI_HASH[code] {
+                if unicode.isEmpty {
+                    continue
+                }
+                
+                self.replaceCharacters(in: result.range, with: unicode)
+            }
+        }
+    }
+}
