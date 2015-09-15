@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let EmojiRegex = NSRegularExpression(pattern: "(:[a-z0-9-+_]+:)", options: .CaseInsensitive, error:nil)!
+private let EmojiRegex = try! NSRegularExpression(pattern: "(:[a-z0-9-+_]+:)", options: .CaseInsensitive)
 
 extension String {
     
@@ -20,25 +20,25 @@ extension String {
         var resultText = text
         let matchingRange = NSMakeRange(0, resultText.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
         EmojiRegex.enumerateMatchesInString(resultText, options: .ReportCompletion, range: matchingRange, usingBlock: {
-            (result: NSTextCheckingResult!, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-                if ((result != nil) && (result.resultType == .RegularExpression)) {
-                    let range = result.range
-                    if (range.location != NSNotFound) {
-                        var code = (text as NSString).substringWithRange(range)
-                        var unicode = EMOJI_HASH[code]!
-                        if !unicode.isEmpty {
-                            resultText = resultText.stringByReplacingOccurrencesOfString(code, withString:unicode, options: nil, range: nil)
-                        }
-                    }
-                }
+            (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+          guard let result = result where result.resultType == .RegularExpression else { return }
+
+          let range = result.range
+          if (range.location != NSNotFound) {
+            let code = (text as NSString).substringWithRange(range)
+            let unicode = EMOJI_HASH[code]!
+            if !unicode.isEmpty {
+              resultText = resultText.stringByReplacingOccurrencesOfString(code, withString:unicode, options: [], range: nil)
+            }
+          }
         })
-        
+
         return resultText
     }
 }
 
 extension NSAttributedString {
-    
+
     public func emojizedString() -> NSAttributedString {
         let mutableString = self.mutableCopy() as! NSMutableAttributedString
         mutableString.emojizeString()
@@ -53,9 +53,9 @@ extension NSMutableAttributedString {
         let text = self.string
         
         let matchingRange = NSMakeRange(0, self.length)
-        let results = EmojiRegex.matchesInString(text, options: NSMatchingOptions(0), range: matchingRange)
+        let results = EmojiRegex.matchesInString(text, options: NSMatchingOptions(rawValue: 0), range: matchingRange)
         
-        for result in results.reverse() {
+        for result in Array(results.reverse()) {
             if result.resultType != .RegularExpression {
                 continue
             }
