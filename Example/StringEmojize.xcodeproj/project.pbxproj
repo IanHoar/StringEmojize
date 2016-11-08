@@ -12,20 +12,9 @@
 		273745781A89B7F400E11B02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 273745761A89B7F400E11B02 /* Main.storyboard */; };
 		2737457A1A89B7F400E11B02 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 273745791A89B7F400E11B02 /* Images.xcassets */; };
 		2737457D1A89B7F400E11B02 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2737457B1A89B7F400E11B02 /* LaunchScreen.xib */; };
-		273745891A89B7F400E11B02 /* StringEmojizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273745881A89B7F400E11B02 /* StringEmojizeTests.swift */; };
 		273745941A89B81900E11B02 /* EmojiCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273745931A89B81900E11B02 /* EmojiCodes.swift */; };
 		2793B6121A89BC1500460EDF /* StringEmojize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2793B6111A89BC1500460EDF /* StringEmojize.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		273745831A89B7F400E11B02 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 273745651A89B7F400E11B02 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2737456C1A89B7F400E11B02;
-			remoteInfo = StringEmojize;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2737456D1A89B7F400E11B02 /* StringEmojize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StringEmojize.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,22 +24,12 @@
 		273745771A89B7F400E11B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		273745791A89B7F400E11B02 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2737457C1A89B7F400E11B02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		273745821A89B7F400E11B02 /* StringEmojizeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StringEmojizeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		273745871A89B7F400E11B02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		273745881A89B7F400E11B02 /* StringEmojizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEmojizeTests.swift; sourceTree = "<group>"; };
 		273745931A89B81900E11B02 /* EmojiCodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiCodes.swift; sourceTree = "<group>"; };
 		2793B6111A89BC1500460EDF /* StringEmojize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringEmojize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2737456A1A89B7F400E11B02 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2737457F1A89B7F400E11B02 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,7 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				2737456F1A89B7F400E11B02 /* StringEmojize */,
-				273745851A89B7F400E11B02 /* StringEmojizeTests */,
 				2737456E1A89B7F400E11B02 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -73,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				2737456D1A89B7F400E11B02 /* StringEmojize.app */,
-				273745821A89B7F400E11B02 /* StringEmojizeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -96,23 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				273745711A89B7F400E11B02 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		273745851A89B7F400E11B02 /* StringEmojizeTests */ = {
-			isa = PBXGroup;
-			children = (
-				273745881A89B7F400E11B02 /* StringEmojizeTests.swift */,
-				273745861A89B7F400E11B02 /* Supporting Files */,
-			);
-			path = StringEmojizeTests;
-			sourceTree = "<group>";
-		};
-		273745861A89B7F400E11B02 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				273745871A89B7F400E11B02 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -146,24 +106,6 @@
 			productReference = 2737456D1A89B7F400E11B02 /* StringEmojize.app */;
 			productType = "com.apple.product-type.application";
 		};
-		273745811A89B7F400E11B02 /* StringEmojizeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2737458F1A89B7F400E11B02 /* Build configuration list for PBXNativeTarget "StringEmojizeTests" */;
-			buildPhases = (
-				2737457E1A89B7F400E11B02 /* Sources */,
-				2737457F1A89B7F400E11B02 /* Frameworks */,
-				273745801A89B7F400E11B02 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				273745841A89B7F400E11B02 /* PBXTargetDependency */,
-			);
-			name = StringEmojizeTests;
-			productName = StringEmojizeTests;
-			productReference = 273745821A89B7F400E11B02 /* StringEmojizeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,11 +119,6 @@
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 34UZ7Y2KSW;
 						LastSwiftMigration = 0810;
-					};
-					273745811A89B7F400E11B02 = {
-						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 0810;
-						TestTargetID = 2737456C1A89B7F400E11B02;
 					};
 				};
 			};
@@ -199,7 +136,6 @@
 			projectRoot = "";
 			targets = (
 				2737456C1A89B7F400E11B02 /* StringEmojize */,
-				273745811A89B7F400E11B02 /* StringEmojizeTests */,
 			);
 		};
 /* End PBXProject section */
@@ -212,13 +148,6 @@
 				273745781A89B7F400E11B02 /* Main.storyboard in Resources */,
 				2737457D1A89B7F400E11B02 /* LaunchScreen.xib in Resources */,
 				2737457A1A89B7F400E11B02 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		273745801A89B7F400E11B02 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,23 +165,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2737457E1A89B7F400E11B02 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				273745891A89B7F400E11B02 /* StringEmojizeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		273745841A89B7F400E11B02 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2737456C1A89B7F400E11B02 /* StringEmojize */;
-			targetProxy = 273745831A89B7F400E11B02 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		273745761A89B7F400E11B02 /* Main.storyboard */ = {
@@ -391,44 +304,6 @@
 			};
 			name = Release;
 		};
-		273745901A89B7F400E11B02 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = StringEmojizeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kylefrost.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StringEmojize.app/StringEmojize";
-			};
-			name = Debug;
-		};
-		273745911A89B7F400E11B02 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = StringEmojizeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kylefrost.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StringEmojize.app/StringEmojize";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -446,15 +321,6 @@
 			buildConfigurations = (
 				2737458D1A89B7F400E11B02 /* Debug */,
 				2737458E1A89B7F400E11B02 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2737458F1A89B7F400E11B02 /* Build configuration list for PBXNativeTarget "StringEmojizeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				273745901A89B7F400E11B02 /* Debug */,
-				273745911A89B7F400E11B02 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
