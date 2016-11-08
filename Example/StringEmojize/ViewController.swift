@@ -18,10 +18,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    @IBAction func convertButton(sender: UIButton) {
+    @IBAction func convertButton(_ sender: UIButton) {
         
-        var myString = textField.text
-        showLabel.text = myString.emojizedString()
+        let myString = textField.text
+        showLabel.text = myString?.emojizedString()
     }
 }
 
