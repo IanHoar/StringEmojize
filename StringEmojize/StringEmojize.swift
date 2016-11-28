@@ -8,70 +8,32 @@
 
 import Foundation
 
-private let EmojiRegex = try! NSRegularExpression(pattern: "(:[a-z0-9-+_]+:)", options: .CaseInsensitive)
+private let EmojiRegex: NSRegularExpression = try! NSRegularExpression(pattern: "(:[a-z0-9-+_]+:)", options: .caseInsensitive)
+//private let EmojiRegex = NSRegularExpression(
 
 extension String {
     
-    public func emojizedString() -> String {
+    func emojizedString() -> String {
         return self.emojizedStringWithString(self)
     }
     
-    public func emojizedStringWithString(text: String) -> String {
+    func emojizedStringWithString(_ text: String) -> String {
         var resultText = text
-        let matchingRange = NSMakeRange(0, resultText.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
-        EmojiRegex.enumerateMatchesInString(resultText, options: .ReportCompletion, range: matchingRange, usingBlock: {
-            (result: NSTextCheckingResult?, flags: NSMatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
-          guard let result = result where result.resultType == .RegularExpression else { return }
-
-          let range = result.range
-          if (range.location != NSNotFound) {
-            let code = (text as NSString).substringWithRange(range)
-            let unicode = EMOJI_HASH[code]!
-            if !unicode.isEmpty {
-              resultText = resultText.stringByReplacingOccurrencesOfString(code, withString:unicode, options: [], range: nil)
-            }
-          }
-        })
-
-        return resultText
-    }
-}
-
-extension NSAttributedString {
-
-    public func emojizedString() -> NSAttributedString {
-        let mutableString = self.mutableCopy() as! NSMutableAttributedString
-        mutableString.emojizeString()
-        return mutableString.copy() as! NSAttributedString
-    }
-}
-
-extension NSMutableAttributedString {
-    
-    public func emojizeString() {
-        
-        let text = self.string
-        
-        let matchingRange = NSMakeRange(0, self.length)
-        let results = EmojiRegex.matchesInString(text, options: NSMatchingOptions(rawValue: 0), range: matchingRange)
-        
-        for result in Array(results.reverse()) {
-            if result.resultType != .RegularExpression {
-                continue
-            }
-            
-            if result.range.location == NSNotFound {
-                continue
-            }
-            
-            let code = (text as NSString).substringWithRange(result.range)
-            if let unicode = EMOJI_HASH[code] {
-                if unicode.isEmpty {
-                    continue
+        let matchingRange = NSMakeRange(0, resultText.lengthOfBytes(using: String.Encoding.utf8))
+        EmojiRegex.enumerateMatches(in: resultText, options: .reportCompletion, range: matchingRange, using: {
+            (result: NSTextCheckingResult!, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
+                if ((result != nil) && (result.resultType == .regularExpression)) {
+                    let range = result.range
+                    if (range.location != NSNotFound) {
+                        let code = (text as NSString).substring(with: range)
+                        let unicode = EMOJI_HASH[code]!
+                        if !unicode.isEmpty {
+                            resultText = resultText.replacingOccurrences(of: code, with: unicode)
+                        }
+                    }
                 }
-                
-                self.replaceCharactersInRange(result.range, withString: unicode)
-            }
-        }
+        } as! (NSTextCheckingResult?, NSRegularExpression.MatchingFlags, UnsafeMutablePointer<ObjCBool>) -> Void)
+        
+        return resultText
     }
 }

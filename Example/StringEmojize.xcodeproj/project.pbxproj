@@ -84,6 +84,7 @@
 				2793B6111A89BC1500460EDF /* StringEmojize.swift */,
 			);
 			name = StringEmojize;
+			path = ../../StringEmojize;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
